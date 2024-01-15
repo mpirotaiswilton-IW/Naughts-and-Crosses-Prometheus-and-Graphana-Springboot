@@ -1,0 +1,633 @@
+{
+	"info": {
+		"_postman_id": "85255c23-cbd5-4ba8-b8bd-3f22eedb4c3d",
+		"name": "Naughts and Crosses API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "31344529"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Register User 1",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\":\"foo\",\r\n    \"password\":\"fooword\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/user/register",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"user",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Register User 2",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\":\"bar\",\r\n    \"password\":\"passbar\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/user/register",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"user",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Authenticate User 1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);\r",
+									"postman.setEnvironmentVariable(\"Token_user_1\", jsonData.result.ks);\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\":\"foo\",\r\n    \"password\":\"fooword\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/authenticate",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"authenticate"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Authenticate User 2",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);\r",
+									"postman.setEnvironmentVariable(\"Token_user_2\", jsonData.result.ks);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\":\"foo\",\r\n    \"password\":\"fooword\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/authenticate",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"authenticate"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Authenticate Admin level User",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);\r",
+									"postman.setEnvironmentVariable(\"Token_admin\", jsonData.result.ks);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\":\"foo\",\r\n    \"password\":\"fooword\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/authenticate",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"authenticate"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Fetch User Name",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/user/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"user",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Fetch All Users",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/user/",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"user",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Fetch All Games From User",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/user/1/games",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"user",
+								"1",
+								"games"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete User Any",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{Token_admin}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/user/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"user",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete User Self",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{Token_user_2}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/user/self",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"user",
+								"self"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "Endpoints for users"
+		},
+		{
+			"name": "Game",
+			"item": [
+				{
+					"name": "Fetch Game",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/game/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"game",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Fetch All Games",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{Token_user_1}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/game/",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"game",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Game",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{Token_user_1}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"doesPrimaryUserStart\" : true,\r\n    \"isPrimaryUserOs\" : true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/game/",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"game",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Join Game",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{Token_user_2}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/game/join/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"game",
+								"join",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Play Move User 1",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{Token_user_1}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/game/1/play/3",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"game",
+								"1",
+								"play",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Play Move  User 2",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{Token_user_2}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/game/1/play/3",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"game",
+								"1",
+								"play",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Forfeit Game",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{Token_user_1}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/game/forfeit/2",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"game",
+								"forfeit",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Game",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{Token_user_1}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/game/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"game",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Game Admin-Level",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{Token_admin}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/game/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"game",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "Endpoints for Games"
+		}
+	]
+}
