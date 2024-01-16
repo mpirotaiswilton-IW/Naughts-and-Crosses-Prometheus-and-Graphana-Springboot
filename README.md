@@ -7,7 +7,6 @@ This Github repository contains a Springboot Naughts and Crosses API with a Post
 [Dockerized-SpringBoot-Applications-Assignment-MaxPW](#dockerized-springboot-applications-assignment-maxpw)
 * [Summary](#summary)
 * [Setup and Pre-requisites](#setup-and-pre-requisites)
-* [Running Hello-World](#running-hello-world)
 * [Running Naughts-and-crosses](#running-naughts-and-crosses)
     * [Playing a game using Postman](#playing-a-game-using-postman)
         * [Optional Endpoints](#optional-endpoints)
@@ -24,23 +23,6 @@ This Github repository contains a Springboot Naughts and Crosses API with a Post
 - Install the latest version of OpenJDK 17 on your device (The following page has a complete catalogue of OpenJDK downloads: [https://www.openlogic.com/openjdk-downloads](https://www.openlogic.com/openjdk-downloads))
 
 2. Clone this repository or download the .zip file from GitHub (extract the downloaded zip file )
-
-## Running Hello-World
-
-1. Using a Command Line Interface used to run Docker and docker-compose commands, change directory to the downloaded/cloned repository, then change directory to the "/hello-world" folder
-
-2. Run the following command: 
-
-```
-docker-compose up
-```
-
-3. A Docker container should now be running with the "Hello-World" API installed
-4. Using a browser, go to [http://localhost:8080](http://localhost:8080): you will be greeted with the following text:
-
-```
-Hello World! :D
-```
 
 ## Running Naughts-and-crosses
 

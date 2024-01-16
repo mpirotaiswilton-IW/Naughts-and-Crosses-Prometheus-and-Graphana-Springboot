@@ -40,7 +40,7 @@ services:
       POSTGRES_USER: admin
       POSTGRES_PASSWORD: naughts&passwords
     volumes:
-      - db:/var/lib/postgres
+      - db:/var/lib/postgresql/data
   pgadmin:
     image: dpage/pgadmin4:latest
     restart: always
